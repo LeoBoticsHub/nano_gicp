@@ -43,3 +43,8 @@ target_link_libraries(nanoflann ${PCL_LIBRARIES})
 ### NanoGICP
 add_library(nano_gicp src/nano_gicp.cc)
 target_link_libraries(nano_gicp ${PCL_LIBRARIES} ${EIGEN3_LIBS} ${OpenMP_LIBS} nanoflann)
+
+target_include_directories(nano_gicp PUBLIC 
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>
+)
